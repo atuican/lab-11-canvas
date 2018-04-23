@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body onload="draw()">
+	<canvas id="sketch" width="500" height="500" style="border:1px solid #000000">
+	</canvas>
+</body>
+<script>
+	
+	function draw() {
+		var sketch = document.getElementById('sketch');
+		var context = sketch.getContext("2d");
+		
+		var size = prompt("Enter a radius: ");
+		var parsize = parseInt(size, 10);
+		var color = prompt("Enter a color (red/green/blue): ");
+		
+		if (color == 'red') {
+			color = "#ff0000";
+		}
+		
+		else if (color == 'green') {
+			color = "#00ff00";
+		}
+		
+		else if (color == 'blue') {
+			color == "#0000ff";
+		}
+		
+		else {
+			console.log("You entered an invalid color");
+			alert("You entered an invalid color");
+		}
+		
+		context.fillStyle = color;
+		context.beginPath();
+		context.arc(250, 250, parsize, 0, 2 * Math.PI, true);
+		context.closePath();
+		context.fill();
+		
+	}
+	
+</script>
+</body>
+</html>
